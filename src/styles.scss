@@ -1,3 +1,19 @@
 body {
-  color: black;
+  background-color: black;
+  .search_sid {
+    padding-left: 30px;
+    background-color: #ffffff;
+    height: 300px;
+    width: 700px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+    .button-blue {
+      background-color: #0084d7;
+      color: #ffffff;
+      border-radius: 40px;
+    }
+  }
 }

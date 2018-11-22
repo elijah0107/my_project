@@ -1,32 +1,33 @@
-body {
-  background-color: black;
+.search-sid {
+  padding-left: 30px;
   font-family: sans-serif;
-  .search_sid {
-    padding-left: 30px;
-    background-color: #ffffff;
-    height: 320px;
-    width: 700px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  height: 320px;
+  width: 700px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+
+  .title {
+    margin-top: 20px;
+    font-weight: bolder;
+  }
+
+  .about-search {
+    font-size: 14px;
+  }
+
+  .text-zone {
     border-radius: 5px;
-    h2 {
-      margin-top: 20px;
-      font-weight: bolder;
-    }
-    p {
-      font-size: 14px;
-    }
-    textarea {
-      border-radius: 5px;
-    }
-    .button-blue {
-      width: 80px;
-      height: 30px;
-      background-color: #0084d7;
-      color: #ffffff;
-      border-radius: 30px;
-    }
+  }
+
+  .button-blue {
+    width: 80px;
+    height: 30px;
+    background-color: #0084d7;
+    color: #ffffff;
+    border-radius: 30px;
   }
 }

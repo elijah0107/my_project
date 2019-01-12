@@ -5,14 +5,19 @@
     <title>Title</title>
 </head>
 <body>
-    <link rel='stylesheet' href='dist/style.css'>
-    <script src="dist/main.js"></script>
-    <div class="search_sid">
-        <h2>Поиск товаров по артикулам</h2>
-        <p>Введите артикулы через пробел с новой строки, например: 123456 123415 135252</p>
-        <input type="text">
-        <p>Не более 10000000 артикулов за раз</p>
-        <button>Искать</button>
+<link rel='stylesheet' href='dist/style.css'>
+<script src="dist/main.js"></script>
+<div class="search_sid not-display" >
+    <h2>Поиск товаров по артикулам</h2>
+    <p>Введите артикулы через пробел с новой строки, например: 123456 123415 135252</p>
+    <p><textarea rows="10" cols="45" name="text"></textarea></p>
+    <p>Не более 10000000 артикулов за раз</p>
+    <button>Искать</button>
+</div>
+<script type="template" id="item-template">
+    <div class="item">
+        <% list. %>
     </div>
+</script>
 </body>
 </html>

@@ -1,33 +1,40 @@
 import Backbone from 'backbone';
+import _ from 'lodash';
 import $ from 'jquery';
-var Item = Backbone.Model.extend({
 
+$(function () {
+   window.App = {
+       Models: {},
+       Collections: {},
+       Views: {}
+   };
+window.template = function (id) {
+  return _.template( $('#' + id).html() );
+};
+
+App.Models.Item = Backbone.Model.extend({});
+
+App.Collections.Item = Backbone.Collection.extend({
+    model: App.Models.Item
 });
-// console.log(new Item);
+
 // var ItemView = Backbone.View.extend({
-//     initialize: function () {
-//         console.log(this.model)
-//     },
-//     tagName: 'ul',
+//     tagName: '.item',
+//     template: _.template('<%= name %>')
 // });
-// console.log(new ItemView({model: Item}));
 
-var PeopleCollection = Backbone.Collection.extend({
-    model: Item,
-});
 //Вью для коллекции
-var ItemView = Backbone.View.extend({
+App.Views.Item = Backbone.View.extend({
     tagName: '.item',
 
-    initialize: function () {
-
-    },
-
     render: function () {
-        this.$el.html(this.template({ collection: this.collection. }))
+        // this.$el.html(this.template({ collection: this.collection}))
+        this.$el.html( this.model.get('name') );
+        return this;
     }
 });
-var ItemCollection = new PeopleCollection([
+
+var item = new App.Collections.Item([
     {
         name: 'Ножницы',
         price: 125,
@@ -44,4 +51,15 @@ var ItemCollection = new PeopleCollection([
         description: 'Прозрачный ',
     }
 ]);
+
+// var item = new App.Models.Item({
+//     name: 'Название товара',
+//     price: 100,
+//     description: 'Описание товара'
+// });
+
+var itemView = new App.Views.Item({ model: item});
+
+console.log(itemView.render().el);
+});
 import './styles.scss';

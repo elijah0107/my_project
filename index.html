@@ -14,10 +14,12 @@
     <p>Не более 10000000 артикулов за раз</p>
     <button>Искать</button>
 </div>
-<script type="template" id="item-template">
-    <div class="item">
-        <%= name %><%= price %> - <%= description %>
-    </div>
-</script>
+<div class="search">
+    <script type="template" id="itemTemplate">
+        <div class="items">
+            <span><%= name %></span>
+        </div>
+    </script>
+</div>
 </body>
 </html>

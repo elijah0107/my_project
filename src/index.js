@@ -18,23 +18,33 @@ App.Collections.Item = Backbone.Collection.extend({
     model: App.Models.Item
 });
 
-// var ItemView = Backbone.View.extend({
-//     tagName: '.item',
-//     template: _.template('<%= name %>')
-// });
 
 //Вью для коллекции
 App.Views.Item = Backbone.View.extend({
-    tagName: '.item',
-
+    tagName: 'li',
+    template: template('itemTemplate'),
     render: function () {
-        // this.$el.html(this.template({ collection: this.collection}))
-        this.$el.html( this.model.get('name') );
+        var template = this.template(this.model.toJSON());
+        this.$el.html( this.model.get('name'));
         return this;
+    },
+    events: {
+
     }
 });
 
-var item = new App.Collections.Item([
+App.Views.Items = Backbone.View.extend({
+   tagName: 'ul',
+    render: function () {
+        this.collection.each(this.addOne, this);
+        return this;
+    },
+    addOne: function (items) {
+        var itemView = new App.Views.Item({ model: items });
+        this.$el.append(itemView.render().el);
+    }
+});
+var items = new App.Collections.Item([
     {
         name: 'Ножницы',
         price: 125,
@@ -57,9 +67,12 @@ var item = new App.Collections.Item([
 //     price: 100,
 //     description: 'Описание товара'
 // });
+var itemsView = new App.Views.Items({
+    collection: items
+});
+itemsView.render();
+$('body').html(itemsView.el);
 
-var itemView = new App.Views.Item({ model: item});
 
-console.log(itemView.render().el);
 });
 import './styles.scss';

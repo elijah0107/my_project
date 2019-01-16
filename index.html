@@ -7,7 +7,7 @@
 <body>
 <link rel='stylesheet' href='dist/style.css'>
 <script src="dist/main.js"></script>
-<div class="search_sid not-display" >
+<div class="search_sid not-display">
     <h2>Поиск товаров по артикулам</h2>
     <p>Введите артикулы через пробел с новой строки, например: 123456 123415 135252</p>
     <p><textarea rows="10" cols="45" name="text"></textarea></p>
@@ -15,10 +15,8 @@
     <button>Искать</button>
 </div>
 <div class="search">
-    <script type="template" id="itemTemplate">
-        <div class="items">
-            <span><%= name %></span>
-        </div>
+    <script type="text/template" id="itemTemplate">
+        <button class="edit">Edit</button>
     </script>
 </div>
 </body>

@@ -1,7 +1,8 @@
+import './styles.scss'
 import Backbone from 'backbone';
 import template from 'lodash/template';
 import $ from 'jquery';
-import lodash from 'lodash'
+import lodash from 'lodash';
 window._ = lodash;
 
 $(function () {
@@ -33,21 +34,24 @@ $(function () {
             var itemView = new App.Views.Item({model: items});
             this.$el.append(itemView.render());
         }
-    })
+    });
 
 
     var items = new App.Collections.Item([
         {
+            sid: 123456,
             name: 'Ножницы',
             price: 125,
             description: 'Портновские ножницы',
         },
         {
+            sid: 123654,
             name: 'Фоторамка',
             price: 1200,
             description: 'Цифровая рамка',
         },
         {
+            sid: 321456,
             name: 'Скотч',
             price: 299,
             description: 'Прозрачный ',

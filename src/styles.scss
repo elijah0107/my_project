@@ -1,4 +1,4 @@
-.search_sid {
+.search-sid {
     background-color: #ffffff;
     position: absolute;
     left: 50%;
@@ -9,5 +9,26 @@
     padding: 10px;
 }
 .not-display {
-  display: none;
+    display: none;
+}
+.search-result {
+
+}
+.items-template-result {
+    border: solid 1px gray;
+}
+.search {
+    margin-bottom: 10px;
+}
+.button-blue {
+    background: #0084d7;
+    color: #ffffff;
+    border: none;
+    border-radius: 40px;
+    height: 25px;
+    width: 110px;
+    font-weight: bold;
+}
+.items-template-result:not(:last-child) {
+    border-bottom: none;
 }

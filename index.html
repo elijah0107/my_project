@@ -7,14 +7,14 @@
 <body>
 <link rel='stylesheet' href='dist/style.css'>
 <script src="dist/main.js"></script>
-<div class="search-sid not-display">
+<div class="search-sid">
     <h2>Поиск товаров по артикулам</h2>
     <p>Введите артикулы через пробел с новой строки, например: 123456 123415 135252</p>
-    <textarea rows="10" cols="45" name="text"></textarea>
-    <p>Не более 10000000 артикулов за раз</p>
-    <button>Искать</button>
+    <textarea rows="6" cols="60" name="text"></textarea>
+    <p>Не более 1000 артикулов за раз</p>
+    <button class="button-blue" >Искать</button>
 </div>
-<div class="search-result">
+<div class="search-result not-display">
     <h2>Поиск товаров по артикулам</h2>
     <p>Результат</p>
     <div class="search"></div>
@@ -23,9 +23,10 @@
 <!-- templates -->
 <script type="text/template" id="item-template">
     <div class="items-template-result">
-        <div class="item-name"><%= name %></div>
         <div class="sid">Артикул: <%= sid %></div>
+        <div class="item-name"><%= name %></div>
         <div class="description"><%= description %></div>
+        <div class=""><a href="#">Подробнее</a></div>
     </div>
 </script>
 </body>

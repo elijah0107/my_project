@@ -1,21 +1,28 @@
 .search-sid {
     background-color: #ffffff;
-    position: absolute;
-    left: 50%;
-    top: 50%;
+    margin-left: auto;
+    margin-right: auto;
     width: 500px;
     height: 200px;
-    transform: translate(-50%, -50%);
     padding: 10px;
 }
 .not-display {
     display: none;
 }
 .search-result {
-
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 .items-template-result {
     border: solid 1px gray;
+    padding: 10px;
+    .sid {
+        font-weight: bold;
+    }
+    .item-name, .description {
+        font-style: italic;
+    }
 }
 .search {
     margin-bottom: 10px;

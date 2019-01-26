@@ -16,6 +16,7 @@ $(function () {
 
     App.Collections.Item = Backbone.Collection.extend({
         model: App.Models.Item,
+        url: 'http://www.sima-land.ru/api/v3/search'
     });
 
 
@@ -33,30 +34,19 @@ $(function () {
         addOne: function (items) {
             var itemView = new App.Views.Item({model: items});
             this.$el.append(itemView.render());
+        },
+        events: {
+            'click #search-button': 'editSearch'
+        },
+        editSearch: function () {
+            let valueInput = $('.text-value').val();
+            console.log(valueInput);
         }
     });
 
 
-    var items = new App.Collections.Item([
-        {
-            sid: 123456,
-            name: 'Ножницы',
-            price: 125,
-            description: 'Портновские ножницы',
-        },
-        {
-            sid: 123654,
-            name: 'Фоторамка',
-            price: 1200,
-            description: 'Цифровая рамка',
-        },
-        {
-            sid: 321456,
-            name: 'Скотч',
-            price: 299,
-            description: 'Прозрачный ',
-        }
-    ]);
+    var items = new App.Collections.Item();
+    items.fetch();
 
 // var item = new App.Models.Item({
 //     name: 'Название товара',
@@ -68,4 +58,5 @@ $(function () {
         collection: items
     });
     itemsView.render();
+    console.log(items);
 });

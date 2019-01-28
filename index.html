@@ -12,21 +12,19 @@
     <p>Введите артикулы через пробел с новой строки, например: 123456 123415 135252</p>
     <input type="textarea" name="text" class="text-value"></input>
     <p>Не более 1000 артикулов за раз</p>
-    <div class="search">
-        <button id="search-button" class="button-blue" >Искать</button>
-    </div>
 </div>
 <div class="search-result">
     <h2>Поиск товаров по артикулам</h2>
     <p>Результат</p>
+    <div class="search">
+    </div>
     <button class="button-blue">Искать ещё</button>
 </div>
 <!-- templates -->
 <script type="text/template" id="item-template">
     <div class="items-template-result">
-        <div class="sid">Артикул: <%= sid %></div>
+        <div class="item-name"><%= id %></div>
         <div class="item-name"><%= name %></div>
-        <div class="description"><%= description %></div>
         <div class=""><a href="#">Подробнее</a></div>
     </div>
 </script>

@@ -3,6 +3,7 @@ import Backbone from 'backbone';
 import template from 'lodash/template';
 import $ from 'jquery';
 import lodash from 'lodash';
+
 window._ = lodash;
 
 $(function () {
@@ -12,11 +13,14 @@ $(function () {
         Views: {}
     };
 
-    App.Models.Item = Backbone.Model.extend({});
+    App.Models.Item = Backbone.Model.extend();
 
-    App.Collections.Item = Backbone.Collection.extend({
+    App.Collections.Items = Backbone.Collection.extend({
         model: App.Models.Item,
-        url: 'http://www.sima-land.ru/api/v3/search'
+        url: 'http://www.sima-land.ru/api/v3/search',
+        parse(response) {
+            return response.items;
+        }
     });
 
 
@@ -32,7 +36,7 @@ $(function () {
             });
         },
         addOne: function (items) {
-            var itemView = new App.Views.Item({model: items});
+            let itemView = new App.Views.Item({model: items});
             this.$el.append(itemView.render());
         },
         events: {
@@ -45,7 +49,7 @@ $(function () {
     });
 
 
-    var items = new App.Collections.Item();
+    let items = new App.Collections.Items();
     items.fetch();
 
 // var item = new App.Models.Item({
@@ -53,7 +57,7 @@ $(function () {
 //     price: 100,
 //     description: 'Описание товара'
 // });
-    var itemsView = new App.Views.ItemsList({
+    let itemsView = new App.Views.ItemsList({
         el: '.search',
         collection: items
     });

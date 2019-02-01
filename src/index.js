@@ -28,12 +28,19 @@ $(function () {
     App.Views.ItemsList = Backbone.View.extend({
         initialize: function () {
             this.itemTemplate = template($('#item-template').html());
+            this.listenTo(this.collection, 'sync', function () {
+                this.collection.each(model => {
+                    const template = this.itemTemplate(model.toJSON());
+                    this.$el.append(template);
+                })
+            })
         },
         render: function () {
-            this.collection.each(model => {
-                const template = this.itemTemplate(model.toJSON());
-                this.$el.append(template);
-            });
+            // this.collection.each(model => {
+                // const template = this.itemTemplate(model.toJSON());
+                // this.$el.append(template);
+                // console.log(model.toJSON());
+            // });
         },
         addOne: function (items) {
             let itemView = new App.Views.Item({model: items});
@@ -62,5 +69,4 @@ $(function () {
         collection: items
     });
     itemsView.render();
-    console.log(items);
 });

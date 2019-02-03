@@ -13,13 +13,19 @@ $(function () {
         Views: {}
     };
 
-    App.Models.Item = Backbone.Model.extend();
+    App.Models.ItemModel = Backbone.Model.extend();
 
     App.Collections.Items = Backbone.Collection.extend({
-        model: App.Models.Item,
+        model: App.Models.ItemModel,
         url: 'http://www.sima-land.ru/api/v3/search',
         parse(response) {
             return response.items;
+        },
+        initialize: function () {
+            var self = this;
+            if (this.get('sid') !== '') {
+                self.set();
+            }
         }
     });
 
@@ -28,12 +34,17 @@ $(function () {
     App.Views.ItemsList = Backbone.View.extend({
         initialize: function () {
             this.itemTemplate = template($('#item-template').html());
+            this.render();
+            this.collection.fetch();
             this.listenTo(this.collection, 'sync', function () {
                 this.collection.each(model => {
                     const template = this.itemTemplate(model.toJSON());
                     this.$el.append(template);
                 })
-            })
+            });
+            this.on('change:editSearch', this.filterBySearch, this);
+
+            this.collection.on('reset', this.render, this)
         },
         render: function () {
             // this.collection.each(model => {
@@ -42,31 +53,37 @@ $(function () {
                 // console.log(model.toJSON());
             // });
         },
-        addOne: function (items) {
-            let itemView = new App.Views.Item({model: items});
-            this.$el.append(itemView.render());
-        },
+        // addOne: function (items) {
+        //     let itemView = new App.Views.Item({model: items});
+        //     this.$el.append(itemView.render());
+        // },
         events: {
-            'click #search-button': 'editSearch'
+            'keyup #searchValue': 'editSearch'
         },
-        editSearch: function () {
-            let valueInput = $('.text-value').val();
-            console.log(valueInput);
+        editSearch: function (e) {
+            this.editSearch = e.target.value;
+            this.trigger('change:editSearch');
+            // let valueInput = $('.text-value').val();
+            // return valueInput;
+        },
+
+        filterBySearch: function() {
+            this.collection.reset(items, {silent: true});
+            var filterString = this.editSearch,
+                filtered = _.filter(this.collection.models, function (item) {
+                    return item.get('sid').toLowerCase().indexOf(filterString.toLowerCase()) !== -1;
+                });
+            this.collection.reset(filtered);
         }
     });
 
-
+    // let item = new App.Models.ItemModel();
     let items = new App.Collections.Items();
-    items.fetch();
+    // items.fetch();
 
-// var item = new App.Models.Item({
-//     name: 'Название товара',
-//     price: 100,
-//     description: 'Описание товара'
-// });
     let itemsView = new App.Views.ItemsList({
         el: '.search',
         collection: items
     });
-    itemsView.render();
+    // itemsView.render();
 });

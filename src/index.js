@@ -36,10 +36,11 @@ $(function () {
             this.itemTemplate = template($('#item-template').html());
             this.render();
             this.collection.fetch();
-            this.listenTo(this.collection, 'sync', function () {
+            this.listenTo(this.collection, 'sync reset', function () {
+                this.$('.search-list').html('');
                 this.collection.each(model => {
                     const template = this.itemTemplate(model.toJSON());
-                    this.$el.append(template);
+                    this.$('.search-list').append(template);
                 })
             });
             this.on('change:editSearch', this.filterBySearch, this);
@@ -68,10 +69,10 @@ $(function () {
         },
 
         filterBySearch: function() {
-            this.collection.reset(items, {silent: true});
+            this.collection.reset(this.collection.models, {silent: true});
             var filterString = this.editSearch,
                 filtered = _.filter(this.collection.models, function (item) {
-                    return item.get('sid').toLowerCase().indexOf(filterString.toLowerCase()) !== -1;
+                    return String(item.get('sid')).toLowerCase().indexOf(filterString.toLowerCase()) !== -1;
                 });
             this.collection.reset(filtered);
         }

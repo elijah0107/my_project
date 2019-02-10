@@ -43,36 +43,29 @@ $(function () {
                     this.$('.search-list').append(template);
                 })
             });
-            this.on('change:editSearch', this.filterBySearch, this);
-
+            this.on('change:searchSid', this.filterBySid, this);
             this.collection.on('reset', this.render, this)
         },
         render: function () {
-            // this.collection.each(model => {
-                // const template = this.itemTemplate(model.toJSON());
-                // this.$el.append(template);
-                // console.log(model.toJSON());
-            // });
         },
-        // addOne: function (items) {
-        //     let itemView = new App.Views.Item({model: items});
-        //     this.$el.append(itemView.render());
-        // },
         events: {
-            'keyup #searchValue': 'editSearch'
-        },
-        editSearch: function (e) {
-            this.editSearch = e.target.value;
-            this.trigger('change:editSearch');
-            // let valueInput = $('.text-value').val();
-            // return valueInput;
+            'click #search-button': 'searchSid'
         },
 
-        filterBySearch: function() {
+        searchSid: function (e) {
+            this.searchSid = e.target.value;
+            this.trigger('change:searchSid')
+        },
+
+
+        filterBySid: function () {
             this.collection.reset(this.collection.models, {silent: true});
-            var filterString = this.editSearch,
+            let valueInput = $('.text-value').val();
+            var searchBySid = this.searchSid,
                 filtered = _.filter(this.collection.models, function (item) {
-                    return String(item.get('sid')).toLowerCase().indexOf(filterString.toLowerCase()) !== -1;
+                    if (valueInput == item.get('sid')) {
+                        return String(item.get('sid')).toLowerCase().indexOf(searchBySid.toLowerCase()) !== -1
+                    }
                 });
             this.collection.reset(filtered);
         }

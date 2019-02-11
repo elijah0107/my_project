@@ -36,13 +36,7 @@ $(function () {
             this.itemTemplate = template($('#item-template').html());
             this.render();
             this.collection.fetch();
-            this.listenTo(this.collection, 'sync reset', function () {
-                this.$('.search-list').html('');
-                this.collection.each(model => {
-                    const template = this.itemTemplate(model.toJSON());
-                    this.$('.search-list').append(template);
-                })
-            });
+            console.log(this.collection);
             this.on('change:searchSid', this.filterBySid, this);
             this.collection.on('reset', this.render, this)
         },
@@ -54,9 +48,8 @@ $(function () {
 
         searchSid: function (e) {
             this.searchSid = e.target.value;
-            this.trigger('change:searchSid')
+            this.trigger('change:searchSid');
         },
-
 
         filterBySid: function () {
             this.collection.reset(this.collection.models, {silent: true});
@@ -68,16 +61,34 @@ $(function () {
                     }
                 });
             this.collection.reset(filtered);
+            this.$('.search-list').html('');
+            this.collection.each(model => {
+                const template = this.itemTemplate(model.toJSON());
+                this.$('.search-list').append(template);
+            })
         }
     });
 
-    // let item = new App.Models.ItemModel();
+    App.Views.SearchForm = Backbone.View.extend({
+        initialize: function () {
+
+        },
+        events: {
+            'click #first-search': 'firstSearch'
+        },
+        firstSearch: function () {
+
+        }
+    });
+
     let items = new App.Collections.Items();
-    // items.fetch();
 
     let itemsView = new App.Views.ItemsList({
         el: '.search',
         collection: items
     });
-    // itemsView.render();
+
+    let search = new App.Views.SearchForm({
+       el: '.search-sid'
+    });
 });

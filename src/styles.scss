@@ -5,6 +5,10 @@
     width: 500px;
     height: 200px;
     padding: 10px;
+    .text-value {
+        width: 400px;
+        height: 100px;
+    }
 }
 .not-display {
     display: none;
@@ -43,9 +47,7 @@
 }
 
 @font-face {
-    // название шрифта(чтобы не запутаться лучше указать название папки со шрифтом)
     font-family: "Open Sans";
-    // адрес шрифта и тип
     src: url("https://fonts.googleapis.com/css?family=Open+Sans") format("truetype");
     font-style: normal;
     font-weight: normal;

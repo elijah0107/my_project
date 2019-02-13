@@ -29,29 +29,19 @@ $(function () {
         }
     });
 
-
-    //Вью для коллекции
-    App.Views.ItemsList = Backbone.View.extend({
-        initialize: function () {
-        },
-        render: function () {
-        },
-        events: {
-            'click #search-button': 'searchSid'
-        },
-    });
-
+    // Вью для формы поиска
     App.Views.SearchForm = Backbone.View.extend({
         initialize: function () {
             this.render();
-            // this.collection.on('reset', this.render, this)
         },
         events: {
-            'click #first-search': 'editSearch'
+            'click #first-search': 'editSearch',
+            'click #search-button': 'backToFirstView'
         },
 
         editSearch: function () {
             let valueInput = $('.text-value').val();
+            valueInput = valueInput.replace(/ /g, ',');
 
             if (valueInput !== '') {
                 this.collection.reset();
@@ -74,12 +64,29 @@ $(function () {
                     })
                 });
             }
+        },
+
+        backToFirstView: function () {
+            $('.text-value').val('');
+            $('.search-sid').removeClass('not-display');
+            $('.search-result').addClass('not-display');
         }
+    });
+
+    //Вью для карточки товара
+    App.Views.CartItem = Backbone.View.extend({
+        initialize: function () {
+        },
+        render: function () {
+        },
+        events: {
+            'click #search-button': 'searchSid'
+        },
     });
 
     let items = new App.Collections.Items();
 
-    let itemsView = new App.Views.ItemsList({
+    let cartView = new App.Views.CartItem({
         el: '.search',
         collection: items
     });

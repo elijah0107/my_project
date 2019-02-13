@@ -21,12 +21,6 @@ $(function () {
         parse(response) {
             return response.items;
         },
-        initialize: function () {
-            // var self = this;
-            // if (this.get('sid') !== '') {
-            //     self.set();
-            // }
-        }
     });
 
     // Вью для формы поиска

@@ -44,5 +44,4 @@ const SearchForm = Backbone.View.extend({
         this.$('.search-result').addClass('not-display');
     },
 });
-
 export default SearchForm;

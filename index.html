@@ -24,12 +24,21 @@
     </div>
 </div>
 </div>
+<div class="cart-item not-display">
+    <div class="cart-atributes"></div>
+</div>
 <!-- templates -->
 <script type="text/template" id="item-template">
     <div class="items-template-result">
-        <div class="item-name"><%= sid %></div>
-        <div class="item-id"><%= name %></div>
+        <div class="item-id"><%= sid %></div>
+        <div class="item-name"><%= name %></div>
         <div class=""><a href="#">Подробнее</a></div>
+    </div>
+</script>
+<script type="text/template" id="cart-template">
+    <div class="cart-template-result">
+        <div class="title-name"><%= name %></div>
+        <div class="price"></div>
     </div>
 </script>
 </body>

@@ -1,7 +1,6 @@
 import './styles.scss'
 import Items from './components/items'
 import SearchForm from './components/search-form';
-// import omit from 'lodash';
 import $ from 'jquery'
 
 

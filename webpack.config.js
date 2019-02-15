@@ -1,7 +1,5 @@
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-
+let ExtractTextPlugin = require('extract-text-webpack-plugin');
 let path = require('path');
-
 let conf = {
     entry: './src/index.js',
     output: {
@@ -18,7 +16,7 @@ let conf = {
                 test: /\.scss$/,
                 use: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
-                    use: ['css-loader', 'sass-loader']
+                    use: ['css-loader','sass-loader']
                 })
             }
         ]
@@ -35,4 +33,4 @@ module.exports = (env, options) => {
                     ? false
                     : 'eval-sourcemap';
     return conf;
-}
+};

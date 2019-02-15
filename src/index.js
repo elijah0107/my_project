@@ -1,6 +1,12 @@
-import $ from 'jquery';
+import './styles.scss'
+import Items from './components/items'
+import SearchForm from './components/search-form';
+import $ from 'jquery'
 
-$('.title').html('Text!');
-console.log(111211111111111111);
 
-import './styles.scss';
+let items = new Items();
+
+let search = new SearchForm({
+    el: $('.searchNew'),
+    collection: items,
+});

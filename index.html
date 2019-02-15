@@ -3,16 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script defer src="dist/main.js"></script>
 </head>
 <body>
-    <link rel='stylesheet' href='dist/style.css'>
-    <script src="dist/main.js"></script>
-    <div class="search-sid">
-        <h2 class="title">Поиск товаров по артикулам</h2>
-        <p class="about-search">Введите артикулы через пробел с новой строки, например: 123456 123415 135252</p>
-        <textarea class="text-zone" name="comment" id="comment_area" cols="75" rows="6"></textarea>
-        <p class="about-search">Не более 1000 артикулов за раз</p>
-        <button class="button-blue">Искать</button>
+<link rel='stylesheet' href='dist/style.css'>
+<div class="searchNew">
+<div class="search-sid">
+    <h2>Поиск товаров по артикулам</h2>
+    <p>Введите артикулы через пробел с новой строки, например: 123456 123415 135252</p>
+    <p>Не более 1000 артикулов за раз</p>
+    <input type="text" class="text-value" id="searchValue"><br>
+    <button class="button-blue" id="first-search">Искать</button>
+</div>
+<div class="search-result not-display">
+    <h2>Поиск товаров по артикулам</h2>
+    <p>Результат</p>
+    <div class="search">
+        <div class="search-list"></div>
+        <button class="button-blue" id="search-button">Искать ещё</button>
     </div>
+</div>
+</div>
+<!-- templates -->
+<script type="text/template" id="item-template">
+    <div class="items-template-result">
+        <div class="item-name"><%= sid %></div>
+        <div class="item-id"><%= name %></div>
+        <div class=""><a href="#">Подробнее</a></div>
+    </div>
+</script>
 </body>
 </html>

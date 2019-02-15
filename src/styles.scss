@@ -42,6 +42,21 @@
     width: 110px;
     font-weight: bold;
 }
+.cart-atributes {
+    margin-left: auto;
+    margin-right: auto;
+    width: 600px;
+    height: 200px;
+    .title-name {
+        text-align: left;
+    }
+    .item-photo {
+        img {
+            height: 300px;
+            width: 300px;
+        }
+    }
+}
 .items-template-result:not(:last-child) {
     border-bottom: none;
 }

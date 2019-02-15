@@ -8,18 +8,22 @@ const CartView = Backbone.View.extend({
             $('.cart-item').removeClass('not-display');
             console.log(this.collection);
             this.render();
-            this.collection.fetch();
+            this.collection.fetch({
+                data: {
+                    sid: 123456
+                }
+            });
             this.itemTemplate = template($('#cart-template').html());
-            this.listenTo()
-            this.$('.cart-atributes').html('');
-            this.collection.each(model => {
-                const template = this.itemTemplate(model.toJSON());
-                this.$('.cart-atributes').append(template);
-            })
+            this.listenTo(this.collection, 'sync', function () {
+                this.$('.cart-atributes').html('');
+                this.collection.each(model => {
+                    const template = this.itemTemplate(model.toJSON());
+                    this.$('.cart-atributes').append(template);
+                })
+            });
         });
     },
-    events: {
-    },
+    events: {},
 });
 
 export default CartView;

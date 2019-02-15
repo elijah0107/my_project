@@ -7,32 +7,34 @@
 </head>
 <body>
 <link rel='stylesheet' href='dist/style.css'>
-<div class="searchNew">
-<div class="search-sid">
-    <h2>Поиск товаров по артикулам</h2>
-    <p>Введите артикулы через пробел с новой строки, например: 123456 123415 135252</p>
-    <p>Не более 1000 артикулов за раз</p>
-    <input type="text" class="text-value" id="searchValue"><br>
-    <button class="button-blue" id="first-search">Искать</button>
-</div>
-<div class="search-result not-display">
-    <h2>Поиск товаров по артикулам</h2>
-    <p>Результат</p>
-    <div class="search">
-        <div class="search-list"></div>
-        <button class="button-blue" id="search-button">Искать ещё</button>
+<div class="search-item">
+    <div class="searchNew">
+        <div class="search-sid">
+            <h2>Поиск товаров по артикулам</h2>
+            <p>Введите артикулы через пробел с новой строки, например: 123456 123415 135252</p>
+            <p>Не более 1000 артикулов за раз</p>
+            <textarea class="text-value" id="searchValue"></textarea><br>
+            <button class="button-blue" id="first-search">Искать</button>
+        </div>
+        <div class="search-result not-display">
+            <h2>Поиск товаров по артикулам</h2>
+            <p>Результат</p>
+            <div class="search">
+                <div class="search-list"></div>
+                <button class="button-blue" id="search-button">Искать ещё</button>
+            </div>
+        </div>
     </div>
-</div>
-</div>
-<div class="cart-item not-display">
-    <div class="cart-atributes"></div>
+    <div class="cart-item not-display">
+        <div class="cart-atributes"></div>
+    </div>
 </div>
 <!-- templates -->
 <script type="text/template" id="item-template">
     <div class="items-template-result">
         <div class="item-id"><%= sid %></div>
         <div class="item-name"><%= name %></div>
-        <div class=""><a href="#">Подробнее</a></div>
+        <div class=""><a href="#" class="js-item-more-button" data-item-sid="<%= sid %>">Подробнее</a></div>
     </div>
 </script>
 <script type="text/template" id="cart-template">

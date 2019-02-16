@@ -41,8 +41,7 @@ const SearchForm = Backbone.View.extend({
 
     openDetails () {
         let sid = this.$(event.target).data('item-sid');
-        console.log(sid);
-        Backbone.trigger('on-click-more-button');
+        Backbone.trigger('on-click-more-button', { sid });
     },
 
     backToFirstView () {

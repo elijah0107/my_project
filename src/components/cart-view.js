@@ -4,13 +4,13 @@ import $ from 'jquery';
 
 const CartView = Backbone.View.extend({
     initialize: function () {
-        this.listenTo(Backbone, 'on-click-more-button', function () {
+        this.listenTo(Backbone, 'on-click-more-button', function ({ sid }) {
             $('.cart-item').removeClass('not-display');
             console.log(this.collection);
             this.render();
             this.collection.fetch({
                 data: {
-                    sid: 123456
+                    sid: sid
                 }
             });
             this.itemTemplate = template($('#cart-template').html());

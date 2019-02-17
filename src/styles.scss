@@ -25,7 +25,8 @@
     .sid {
         font-weight: bold;
     }
-    .item-name, .item-id {
+    .item-name, .sid {
+        margin-bottom: 5px;
         font-style: italic;
     }
 }
@@ -50,11 +51,20 @@
     .title-name {
         text-align: left;
     }
-    .item-photo {
-        img {
-            height: 300px;
-            width: 300px;
+    .cart-properties {
+        .item-photo {
+            float: left;
+            img {
+                height: 300px;
+                width: 300px;
+            }
         }
+        .price {
+            float: left;
+            padding: 20px;
+            font-size: 18px;
+        }
+
     }
 }
 .items-template-result:not(:last-child) {

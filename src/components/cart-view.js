@@ -6,7 +6,6 @@ const CartView = Backbone.View.extend({
     initialize: function () {
         this.listenTo(Backbone, 'on-click-more-button', function ({ sid }) {
             $('.cart-item').removeClass('not-display');
-            console.log(this.collection);
             this.render();
             this.collection.fetch({
                 data: {

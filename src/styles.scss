@@ -64,7 +64,18 @@
             padding: 20px;
             font-size: 18px;
         }
-
+        .cart-description {
+            .cart-options {
+                display: inline-block;
+                .titles {
+                    float: left;
+                    margin: 0 10px;
+                }
+            }
+            .description {
+                padding-left: 310px;
+            }
+        }
     }
 }
 .items-template-result:not(:last-child) {

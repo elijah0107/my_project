@@ -72,8 +72,14 @@
                     margin-left: 10px;
                 }
             }
-            .description {
+            .description-value, .characteristic-value {
                 padding-left: 310px;
+                .common-title {
+                    margin-top: 10px;
+                }
+                .trademark {
+                    margin-top: 10px;
+                }
             }
         }
     }

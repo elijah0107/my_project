@@ -10,7 +10,7 @@ const CartView = Backbone.View.extend({
             this.collection.fetch({
                 data: {
                     sid: sid,
-                    expand: 'description'
+                    expand: 'description, photo_sizes'
                 }
             });
             this.itemTemplate = template($('#cart-template').html());
@@ -23,7 +23,18 @@ const CartView = Backbone.View.extend({
             });
         });
     },
-    events: {},
+    events: {
+        'click .characteristic': 'openCharacteristic',
+        'click .description': 'openDescription'
+    },
+    openCharacteristic: function () {
+        this.$('.description-value').addClass('not-display');
+        this.$('.characteristic-value').removeClass('not-display');
+    },
+    openDescription: function () {
+        this.$('.characteristic-value').addClass('not-display');
+        this.$('.description-value').removeClass('not-display');
+    }
 });
 
 export default CartView;

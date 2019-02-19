@@ -41,14 +41,23 @@
     <div class="cart-template-result">
         <div class="title-name"><h2><%= name %></h2></div>
         <div class="cart-properties">
-            <div class="item-photo"><img src="<%= photos[0].url_part + '700.jpg' %>" alt=""></div>
+            <div class="item-photo"><img src="<%= photos[0].url_part + photo_sizes[3]+ '.jpg' + '?v=' + photoVersions[0].number %>" alt=""></div>
             <div class="price"><%= price %> RUB</div>
             <div class="cart-description">
                 <div class="cart-options">
-                    <div class="titles"><a href="#">ОПИСАНИЕ</a></div>
-                    <div class="titles"><a href="#">ХАРАКТЕРИСТИКИ</a></div>
+                    <div class="titles description"><a href="#">ОПИСАНИЕ</a></div>
+                    <div class="titles characteristic"><a href="#">ХАРАКТЕРИСТИКИ</a></div>
                 </div>
-                <div class="description"><%= description %></div>
+                <div class="description-value"><%= description %></div>
+                <div class="characteristic-value not-display">
+                    <div class="common">
+                        <div class="common-title">Общие:</div>
+                        <div class="trademark">Торговая марка:___________<%= trademark.name %></div>
+                        <div class="trademark">Артикул:_________________<%= sid %></div>
+                        <div class="trademark">Страна:__________________<%= country.name %></div>
+                        <div class="trademark">Состав:__________________<%= stuff %></div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

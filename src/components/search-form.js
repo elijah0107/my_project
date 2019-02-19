@@ -39,7 +39,7 @@ const SearchForm = Backbone.View.extend({
         }
     },
 
-    openDetails () {
+    openDetails (event) {
         let sid = this.$(event.target).data('item-sid');
         Backbone.trigger('on-click-more-button', { sid });
     },

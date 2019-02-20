@@ -74,8 +74,10 @@
             }
             .description-value, .characteristic-value {
                 padding-left: 310px;
+                min-width: 400px;
                 .common-title {
                     margin-top: 10px;
+                    font-weight: bold;
                 }
                 .trademark {
                     margin-top: 10px;
@@ -83,6 +85,10 @@
             }
         }
     }
+}
+.description:visited, .characteristic:visited {
+    color: #0084d7;
+    font-weight: bold;
 }
 .items-template-result:not(:last-child) {
     border-bottom: none;

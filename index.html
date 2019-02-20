@@ -40,13 +40,13 @@
 <script type="text/template" id="cart-template">
     <div class="cart-template-result">
         <div class="title-name"><h2><%= name %></h2></div>
-        <div class="cart-properties">
+        <div class="cart-properties">10
             <div class="item-photo"><img src="<%= photos[0].url_part + photo_sizes[3]+ '.jpg' + '?v=' + photoVersions[0].number %>" alt=""></div>
             <div class="price"><%= price %> RUB</div>
             <div class="cart-description">
                 <div class="cart-options">
-                    <div class="titles description"><a href="#">ОПИСАНИЕ</a></div>
-                    <div class="titles characteristic"><a href="#">ХАРАКТЕРИСТИКИ</a></div>
+                    <div class="titles description"><a class="titles description" href="#">ОПИСАНИЕ</a></div>
+                    <div class="titles characteristic"><a class="titles characteristic" href="#">ХАРАКТЕРИСТИКИ</a></div>
                 </div>
                 <div class="description-value"><%= description %></div>
                 <div class="characteristic-value not-display">
@@ -56,6 +56,14 @@
                         <div class="trademark">Артикул:_________________<%= sid %></div>
                         <div class="trademark">Страна:__________________<%= country.name %></div>
                         <div class="trademark">Состав:__________________<%= stuff %></div>
+                    </div>
+                    <div class="common">
+                        <div class="common-title">Упаковка и фасовка:</div>
+                        <div class="trademark">В боксе:_________________<%= box_capacity %></div>
+                    </div>
+                    <div class="common">
+                        <div class="common-title">Габариты и вес:</div>
+                        <div class="trademark">Размер:__________________<%= size %></div>
                     </div>
                 </div>
             </div>

@@ -5,7 +5,6 @@ import $ from 'jquery';
 const CartView = Backbone.View.extend({
     initialize: function () {
         this.listenTo(Backbone, 'on-click-more-button', function ({ sid }) {
-            $('.cart-item').removeClass('not-display');
             this.render();
             this.collection.fetch({
                 data: {
@@ -21,6 +20,7 @@ const CartView = Backbone.View.extend({
                     this.$('.cart-atributes').append(template);
                 })
             });
+            $('.cart-item').removeClass('not-display');
         });
     },
     events: {

@@ -81,6 +81,7 @@
                 }
                 .trademark {
                     margin-top: 10px;
+                    color: gray;
                 }
             }
         }
@@ -90,6 +91,16 @@
     color: #0084d7;
     font-weight: bold;
 }
+.description > a, .characteristic > a{
+    text-decoration: none;
+    border-bottom: 1px dashed;
+}
+
+.selected {
+    color: black;
+    border-bottom: none;
+}
+
 .items-template-result:not(:last-child) {
     border-bottom: none;
 }

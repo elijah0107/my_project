@@ -30,10 +30,12 @@ const CartView = Backbone.View.extend({
     openCharacteristic: function () {
         this.$('.description-value').addClass('not-display');
         this.$('.characteristic-value').removeClass('not-display');
+        $('.characteristic').addClass('selected');
     },
     openDescription: function () {
         this.$('.characteristic-value').addClass('not-display');
         this.$('.description-value').removeClass('not-display');
+        $('.description').addClass('selected');
     }
 });
 

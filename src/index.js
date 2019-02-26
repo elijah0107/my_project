@@ -1,7 +1,7 @@
-import './styles.scss'
-import Items from './components/items'
+import './styles.scss';
+import Items from './components/items';
 import SearchForm from './components/search-form';
-import $ from 'jquery'
+import $ from 'jquery';
 import CartsItem from './components/carts-item';
 import CartView from './components/cart-view';
 

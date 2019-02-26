@@ -28,7 +28,7 @@ const SearchForm = Backbone.View.extend({
             this.render();
             this.collection.fetch({
                 data: {
-                    sids: valueInput
+                    sids: valueInput,
                 }
             });
             this.$('.search-sid').addClass('not-display');
@@ -40,7 +40,7 @@ const SearchForm = Backbone.View.extend({
     },
 
     openDetails (event) {
-        let sid = this.$(event.target).data('item-sid');
+        const sid = this.$(event.target).data('item-sid');
         Backbone.trigger('on-click-more-button', { sid });
     },
 

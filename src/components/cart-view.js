@@ -9,7 +9,7 @@ const CartView = Backbone.View.extend({
             this.collection.fetch({
                 data: {
                     sid: sid,
-                    expand: 'description, photo_sizes'
+                    expand: 'description, photo_sizes',
                 }
             });
             this.itemTemplate = template($('#cart-template').html());

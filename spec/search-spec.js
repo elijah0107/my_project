@@ -1,8 +1,7 @@
-import SearchForm from '../src/components/search-form';
-import Items from "../src/components/items";
-import $ from "jquery";
-
 describe('Проверяем создание коллекции', () => {
+    import SearchForm from '../src/components/search-form';
+    import Items from "../src/components/items";
+    import $ from "jquery";
         let items = new Items();
 
 

@@ -2,7 +2,7 @@ import Backbone from 'backbone';
 import template from 'lodash/template';
 import $ from 'jquery';
 
-const CartView = Backbone.View.extend({
+const ProductView = Backbone.View.extend({
     initialize: function () {
         this.listenTo(Backbone, 'on-click-more-button', function ({ sid }) {
             this.render();
@@ -20,7 +20,7 @@ const CartView = Backbone.View.extend({
                     this.$('.cart-atributes').append(template);
                 })
             });
-            $('.cart-item').removeClass('not-display');
+            this.$el.removeClass('not-display');
         });
     },
     events: {
@@ -31,12 +31,14 @@ const CartView = Backbone.View.extend({
         this.$('.description-value').addClass('not-display');
         this.$('.characteristic-value').removeClass('not-display');
         $('.characteristic').addClass('selected');
+        $('.description').removeClass('selected');
     },
     openDescription: function () {
         this.$('.characteristic-value').addClass('not-display');
         this.$('.description-value').removeClass('not-display');
         $('.description').addClass('selected');
+        $('.characteristic').removeClass('selected');
     }
 });
 
-export default CartView;
+export default ProductView;

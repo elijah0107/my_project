@@ -71,6 +71,10 @@
                     float: left;
                     margin-left: 10px;
                     text-transform: uppercase;
+                    .selected {
+                        color: black;
+                        border-bottom: none;
+                    }
                 }
             }
             .description-value, .characteristic-value {
@@ -80,9 +84,14 @@
                     margin-top: 10px;
                     font-weight: bold;
                 }
-                .trademark {
+                .characteristic-name {
                     margin-top: 10px;
                     color: gray;
+                    .underline {
+                        display: inline-block;
+                        border-bottom: 1px solid gray;
+                        min-width: 130px;
+                    }
                 }
             }
         }
@@ -95,11 +104,6 @@
 .description > a, .characteristic > a{
     text-decoration: none;
     border-bottom: 1px dashed;
-}
-
-.selected {
-    color: black;
-    border-bottom: none;
 }
 
 .items-template-result:not(:last-child) {

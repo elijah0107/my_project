@@ -87,10 +87,13 @@
                 .characteristic-name {
                     margin-top: 10px;
                     color: gray;
+                    display: flex;
+                    align-content: space-between;
+                    width: 100px;
+                    .trademark {
+                    }
                     .underline {
-                        display: inline-block;
                         border-bottom: 1px solid gray;
-                        min-width: 130px;
                     }
                 }
             }

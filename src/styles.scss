@@ -25,7 +25,8 @@
     .sid {
         font-weight: bold;
     }
-    .item-name, .sid {
+    .item-name,
+    .sid {
         margin-bottom: 5px;
         font-style: italic;
     }
@@ -77,7 +78,8 @@
                     }
                 }
             }
-            .description-value, .characteristic-value {
+            .description-value,
+            .characteristic-value {
                 padding-left: 310px;
                 min-width: 400px;
                 .common-title {
@@ -104,11 +106,13 @@
         }
     }
 }
-.description:visited, .characteristic:visited {
+.description:visited,
+.characteristic:visited {
     color: #0084d7;
     font-weight: bold;
 }
-.description > a, .characteristic > a{
+.description > a,
+.characteristic > a{
     text-decoration: none;
     border-bottom: 1px dashed;
 }

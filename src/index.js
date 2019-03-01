@@ -2,7 +2,7 @@ import './styles.scss';
 import Items from './components/items';
 import SearchForm from './components/search-form';
 import CartsItem from './components/carts-item';
-import ProductView from './components/cart-view';
+import ProductView from './components/product-view';
 
 
 let items = new Items();

@@ -25,7 +25,9 @@
     .sid {
         font-weight: bold;
     }
-    .item-name, .item-id {
+    .item-name,
+    .sid {
+        margin-bottom: 5px;
         font-style: italic;
     }
 }
@@ -42,6 +44,79 @@
     width: 110px;
     font-weight: bold;
 }
+.cart-atributes {
+    margin-left: auto;
+    margin-right: auto;
+    width: 600px;
+    height: 200px;
+    .title-name {
+        text-align: left;
+    }
+    .cart-properties {
+        .item-photo {
+            float: left;
+            img {
+                height: 300px;
+                width: 300px;
+            }
+        }
+        .price {
+            float: left;
+            padding: 20px;
+            font-size: 18px;
+        }
+        .cart-description {
+            .cart-options {
+                display: inline-block;
+                .titles {
+                    float: left;
+                    margin-left: 10px;
+                    text-transform: uppercase;
+                    .selected {
+                        color: black;
+                        border-bottom: none;
+                    }
+                }
+            }
+            .description-value,
+            .characteristic-value {
+                padding-left: 310px;
+                min-width: 400px;
+                .common-title {
+                    margin-top: 10px;
+                    font-weight: bold;
+                }
+                .characteristic-name {
+                    margin-top: 10px;
+                    color: gray;
+                    display: flex;
+                    justify-content: space-between;
+                    .trademark {
+                        flex-shrink: 0;
+                    }
+                    .underline {
+                        border-bottom: 1px solid gray;
+                        flex-basis: 100%;
+                    }
+                    .trademark-value {
+                        flex-shrink: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+.description:visited,
+.characteristic:visited {
+    color: #0084d7;
+    font-weight: bold;
+}
+.description > a,
+.characteristic > a{
+    text-decoration: none;
+    border-bottom: 1px dashed;
+}
+
 .items-template-result:not(:last-child) {
     border-bottom: none;
 }

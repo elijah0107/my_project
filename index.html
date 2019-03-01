@@ -4,32 +4,94 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <script defer src="dist/main.js"></script>
+    <link rel='stylesheet' href='dist/style.css'>
 </head>
 <body>
-<link rel='stylesheet' href='dist/style.css'>
-<div class="searchNew">
-<div class="search-sid">
-    <h2>Поиск товаров по артикулам</h2>
-    <p>Введите артикулы через пробел с новой строки, например: 123456 123415 135252</p>
-    <p>Не более 1000 артикулов за раз</p>
-    <input type="text" class="text-value" id="searchValue"><br>
-    <button class="button-blue" id="first-search">Искать</button>
-</div>
-<div class="search-result not-display">
-    <h2>Поиск товаров по артикулам</h2>
-    <p>Результат</p>
-    <div class="search">
-        <div class="search-list"></div>
-        <button class="button-blue" id="search-button">Искать ещё</button>
+<div class="search-item">
+    <div class="searchNew">
+        <div class="search-sid">
+            <h2>Поиск товаров по артикулам</h2>
+            <p>Введите артикулы через пробел с новой строки, например: 123456 123415 135252</p>
+            <p>Не более 1000 артикулов за раз</p>
+            <textarea class="text-value" id="searchValue"></textarea><br>
+            <button class="button-blue" id="first-search">Искать</button>
+        </div>
+        <div class="search-result not-display">
+            <h2>Поиск товаров по артикулам</h2>
+            <p>Результат</p>
+            <div class="search">
+                <div class="search-list"></div>
+                <button class="button-blue" id="search-button">Искать ещё</button>
+            </div>
+        </div>
     </div>
-</div>
+    <div class="cart-item not-display">
+        <div class="cart-atributes"></div>
+    </div>
 </div>
 <!-- templates -->
 <script type="text/template" id="item-template">
     <div class="items-template-result">
-        <div class="item-name"><%= sid %></div>
-        <div class="item-id"><%= name %></div>
-        <div class=""><a href="#">Подробнее</a></div>
+        <div class="sid">Артикул: <%= sid %></div>
+        <div class="item-name"><%= name %></div>
+        <div class=""><a href="#" class="js-item-more-button" data-item-sid="<%= sid %>">Подробнее</a></div>
+    </div>
+</script>
+<script type="text/template" id="cart-template">
+    <div class="cart-template-result">
+        <div class="title-name"><h2><%= name %></h2></div>
+        <div class="cart-properties">
+            <div class="item-photo"><img src="<%= photos[0].url_part + photo_sizes[3]+ '.jpg' + '?v=' + photoVersions[0].number %>" alt=""></div>
+            <div class="price"><%= price %> RUB</div>
+            <div class="cart-description">
+                <div class="cart-options">
+                    <div class="titles description"><a class="titles description" href="#">описание</a></div>
+                    <div class="titles characteristic"><a class="titles characteristic" href="#">характеристики</a></div>
+                </div>
+                <div class="description-value"><%= description %></div>
+                <div class="characteristic-value not-display">
+                    <div class="common">
+                        <div class="common-title">Общие:</div>
+                        <div class="characteristic-name">
+                            <div class="trademark">Торговая марка:</div>
+                            <div class="underline"></div>
+                            <div class="trademark-value"><%= trademark.name %></div>
+                        </div>
+                        <div class="characteristic-name">
+                            <div class="trademark">Артикул:</div>
+                            <div class="underline"></div>
+                            <div class="trademark-value"><%= sid %></div>
+                        </div>
+                        <div class="characteristic-name">
+                            <div class="trademark">Страна:</div>
+                            <div class="underline"></div>
+                            <div class="trademark-value"><%= country.name %></div>
+                        </div>
+                        <div class="characteristic-name">
+                            <div class="trademark">Состав:</div>
+                            <div class="underline"></div>
+                            <div class="trademark-value"><%= stuff %></div>
+                        </div>
+                    </div>
+                    <div class="common">
+                        <div class="common-title">Упаковка и фасовка:</div>
+                        <div class="characteristic-name">
+                            <div class="trademark">В боксе:</div>
+                            <div class="underline"></div>
+                            <div class="trademark-value"><%= box_capacity %></div>
+                        </div>
+                    </div>
+                    <div class="common">
+                        <div class="common-title">Габариты и вес:</div>
+                        <div class="characteristic-name">
+                            <div class="trademark">Размер:</div>
+                            <div class="underline"></div>
+                            <div class="trademark-value"><%= size %></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </script>
 </body>

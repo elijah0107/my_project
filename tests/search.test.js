@@ -6,13 +6,12 @@ let items = new Items();
 
 
 let search = new SearchForm({
-    el: $('.searchNew'),
     collection: items,
+    el: '.cart-item',
 });
 
 describe('Проверяем создание коллекции', () => {
-    it('Что-то делает', function () {
-        expect(items.collection).toBeDefined();
-        this.$el.toBe('.searchNew')
+    it('', function () {
+        expect(items).toBeDefined();
     });
 });

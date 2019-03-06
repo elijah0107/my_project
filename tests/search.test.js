@@ -2,16 +2,35 @@ import SearchForm from '../src/components/search-form';
 import Items from "../src/components/items";
 import $ from "jquery";
 
-let items = new Items();
 
+    describe('check search form', () => {
 
-let search = new SearchForm({
-    collection: items,
-    el: '.cart-item',
-});
+        it('check url', function () {
+            const items = new Items();
+            expect(items.url).toEqual('http://www.sima-land.ru/api/v3/search');
+        });
 
-describe('Проверяем создание коллекции', () => {
-    it('', function () {
-        expect(items).toBeDefined();
+        it('parse test', () => {
+            const items = new Items(),
+                result = items.parse({
+                    items: 'Stone underworld'
+                });
+            expect(result).toEqual('Stone underworld');
+        });
+
+        fit('check edit search', () => {
+            const items = new Items(),
+                search = new SearchForm({
+                    el: '.searchNew',
+                    collection: items,
+                });
+            items.fetch({
+                data: {
+                    sids: 123456
+                }
+            });
+            items.parse(items);
+            expect(items.fetch).toEqual();
+        });
+
     });
-});

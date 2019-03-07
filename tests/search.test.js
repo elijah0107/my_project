@@ -4,6 +4,12 @@ import $ from "jquery";
 
 
     describe('check search form', () => {
+         let form,
+            createSearchForm = () => {
+                return new SearchForm({
+                    collection: new Items()
+                });
+         };
 
         it('check url', function () {
             const items = new Items();
@@ -11,26 +17,23 @@ import $ from "jquery";
         });
 
         it('parse test', () => {
-            const items = new Items(),
-                result = items.parse({
+
+            const result = items.parse({
                     items: 'Stone underworld'
-                });
+            });
             expect(result).toEqual('Stone underworld');
         });
 
         fit('check edit search', () => {
-            const items = new Items(),
-                search = new SearchForm({
-                    el: '.searchNew',
-                    collection: items,
-                });
-            items.fetch({
-                data: {
-                    sids: 123456
-                }
-            });
-            items.parse(items);
-            expect(items.fetch).toEqual();
+            spyOn(SearchForm.prototype, 'editSearch');
+            form = createSearchForm();
+            expect(form.editSearch).toHaveBeenCalledTimes(0);
+            expect(form.$('.search-sid').hasClass('not-display')).toEqual(false);
+            form.editSearch();
+            expect(form.editSearch).toHaveBeenCalledTimes(1);
+            expect(form.$('.search-result').hasClass('not-display')).toEqual(true);
+            expect(form.$('.search-sid').hasClass('not-display')).toEqual(true);
+
         });
 
     });

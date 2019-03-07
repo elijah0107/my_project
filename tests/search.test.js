@@ -1,9 +1,13 @@
 import SearchForm from '../src/components/search-form';
 import Items from "../src/components/items";
+import Loader from 'fixture-loader';
 import $ from "jquery";
 
 
     describe('check search form', () => {
+        beforeEach(() => {
+            getFixturePath('../index.html');
+        });
          let form,
             createSearchForm = () => {
                 return new SearchForm({
@@ -25,10 +29,14 @@ import $ from "jquery";
         });
 
         fit('check edit search', () => {
-            spyOn(SearchForm.prototype, 'editSearch');
+            let fixture = Loader('index', 'html');
             form = createSearchForm();
-            expect(form.editSearch).toHaveBeenCalledTimes(0);
             expect(form.$('.search-sid').hasClass('not-display')).toEqual(false);
+            console.log(form.$('.text-value').length);
+            form.$('.text-value').val(123456);
+
+            expect(form.$('.text-value').val()).toEqual(123456);
+
             form.editSearch();
             expect(form.editSearch).toHaveBeenCalledTimes(1);
             expect(form.$('.search-result').hasClass('not-display')).toEqual(true);

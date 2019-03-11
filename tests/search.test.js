@@ -1,6 +1,6 @@
 import SearchForm from '../src/components/search-form';
 import Items from "../src/components/items";
-import { create as createFixtureLoader } from '../node_modules/fixture-loader';
+import Load from '../fixture-loader';
 import $ from "jquery";
 import Backbone from "backbone";
 
@@ -8,9 +8,10 @@ import Backbone from "backbone";
 
 
     describe('check search form', () => {
+        let fixtures = Load('index', 'html');
+
         beforeEach(function () {
-            const fixture_loader = createFixtureLoader(__dirname, '../src/')
-            fixture_loader.loadParsedXml('fixtures.html')
+            $('body').append(fixtures);
         });
          let form,
             createSearchForm = () => {
@@ -25,7 +26,7 @@ import Backbone from "backbone";
         });
 
         it('parse test', () => {
-
+            const items = new Items();
             const result = items.parse({
                     items: 'Stone'
             });

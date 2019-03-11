@@ -13,9 +13,13 @@ import Backbone from "backbone";
         beforeEach(function () {
             $('body').append(fixtures);
         });
+        afterEach(function () {
+            $('body').html('');
+        });
          let form,
             createSearchForm = () => {
                 return new SearchForm({
+                    el: '.searchNew',
                     collection: new Items()
                 });
          };
@@ -36,12 +40,10 @@ import Backbone from "backbone";
         it('check edit search', () => {
             form = createSearchForm();
             expect(form.$('.search-sid').hasClass('not-display')).toEqual(false);
-            console.log(form.$('.text-value').length);
             form.$('.text-value').val(123456);
-            form.$('.button-blue').click();
+            console.log(form.$('.text-value').length);
             form.editSearch();
-            expect(form.editSearch).toHaveBeenCalledTimes(1);
-            expect(form.$('.search-result').hasClass('not-display')).toEqual(true);
+            expect(form.$('.search-result').hasClass('not-display')).toEqual(false);
             expect(form.$('.search-sid').hasClass('not-display')).toEqual(true);
         });
 
@@ -58,7 +60,7 @@ import Backbone from "backbone";
             form.backToFirstView();
             expect(form.$('.search-sid').hasClass('not-display')).toEqual(false);
             expect(form.$('.search-result').hasClass('not-display')).toEqual(true);
-            expect(form.$('.cart-item').hasClass('not-display')).toEqual(true);
+            expect($('.cart-item').hasClass('not-display')).toEqual(true);
             expect(form.$('.text-value').val()).toEqual('');
         });
 

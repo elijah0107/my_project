@@ -21,7 +21,21 @@ describe('check search form', () => {
                 collection: new Items()
             });
         };
-
+    let testModel = new Backbone.Model({
+        name: 'test',
+        photos: ['test'] ,
+        url_part: 'test',
+        photo_sizes: [],
+        photoVersions: ['test'],
+        number: 1, price: 123,
+        description: 'Тестовое описание',
+        trademark: 'Тестовая ТМ',
+        sid: 1234,
+        country: 'Тестовая страна',
+        stuff: 'Тест',
+        box_capacity: 'Тест',
+        size: 123
+    });
     it('check url', function () {
         const items = new Items();
         expect(items.url).toEqual('http://www.sima-land.ru/api/v3/search');
@@ -44,11 +58,15 @@ describe('check search form', () => {
         expect(form.$('.search-sid').hasClass('not-display')).toEqual(true);
     });
 
-    it('check open details', () => {
+    fit('check open details', (event) => {
+        spyOn('openDetails', )
         form = createSearchForm();
+        form.collection.push(testModel);
+        form.render();
+        console.log(form.$(event.target).data('item-sid'));
         form.openDetails();
-        listenTo(Backbone, 'on-click-more-button', function ({sid}) {
-            console.log(sid);
+        listenTo(Backbone, 'on-click-more-button', function ({ sid }) {
+            console.log({sid})
         });
     });
 

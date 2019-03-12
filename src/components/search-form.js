@@ -4,19 +4,20 @@ import $ from 'jquery';
 
 const SearchForm = Backbone.View.extend({
     initialize: function () {
-        this.render();
-        this.listenTo(this.collection, 'sync', function () {
-            this.$('.search-list').html('');
-            this.collection.each(model => {
-                const template = this.itemTemplate(model.toJSON());
-                this.$('.search-list').append(template);
-            })
-        });
+        this.itemTemplate = template($('#item-template').html());
+        this.listenTo(this.collection, 'sync', this.render);
     },
     events: {
         'click #first-search': 'editSearch',
         'click #search-button': 'backToFirstView',
         'click .js-item-more-button': 'openDetails',
+    },
+    render() {
+        this.$('.search-list').html('');
+        this.collection.each(model => {
+            const template = this.itemTemplate(model.toJSON());
+            this.$('.search-list').append(template);
+        })
     },
 
     editSearch () {
@@ -33,8 +34,6 @@ const SearchForm = Backbone.View.extend({
             });
             this.$('.search-sid').addClass('not-display');
             this.$('.search-result').removeClass('not-display');
-
-            this.itemTemplate = template($('#item-template').html());
             this.$('.search-list').html('');
         }
     },

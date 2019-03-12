@@ -25,7 +25,7 @@ describe('check search form', () => {
         name: 'test',
         photos: ['test'] ,
         url_part: 'test',
-        photo_sizes: [],
+        photo_sizes: ['test'],
         photoVersions: ['test'],
         number: 1, price: 123,
         description: 'Тестовое описание',
@@ -58,16 +58,16 @@ describe('check search form', () => {
         expect(form.$('.search-sid').hasClass('not-display')).toEqual(true);
     });
 
-    fit('check open details', (event) => {
-        spyOn('openDetails', )
+    fit('check open details', () => {
         form = createSearchForm();
-        form.collection.push(testModel);
-        form.render();
-        console.log(form.$(event.target).data('item-sid'));
-        form.openDetails();
-        listenTo(Backbone, 'on-click-more-button', function ({ sid }) {
-            console.log({sid})
+        spyOn(Backbone, 'trigger');
+        form.$('.js-item-more-button').data('test')
+        console.log(form.$('.js-item-more-button').data());
+        form.openDetails({
+            target: document.querySelector('.js-item-more-button'),
         });
+        expect(Backbone.trigger).toHaveBeenCalledTimes(1);
+        expect(Backbone.trigger).toHaveBeenCalledWith('on-click-more-button', {sid: 'test'});
     });
 
     it('check back to first view', () => {

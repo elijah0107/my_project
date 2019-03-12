@@ -3,29 +3,29 @@ import template from 'lodash/template';
 import $ from 'jquery';
 
 const ProductView = Backbone.View.extend({
-    initialize: function () {
-        this.listenTo(Backbone, 'on-click-more-button', function ({ sid }) {
-            this.render();
-            this.collection.fetch({
-                data: {
-                    sid: sid,
-                    expand: 'description, photo_sizes',
-                }
-            });
-            this.itemTemplate = template($('#cart-template').html());
-            this.listenTo(this.collection, 'sync', function () {
-                this.$('.cart-atributes').html('');
-                this.collection.each(model => {
-                    const template = this.itemTemplate(model.toJSON());
-                    this.$('.cart-atributes').append(template);
-                })
-            });
-            this.$el.removeClass('not-display');
-        });
-    },
     events: {
         'click .characteristic': 'openCharacteristic',
         'click .description': 'openDescription'
+    },
+    initialize: function () {
+        this.itemTemplate = template($('#cart-template').html());
+        this.listenTo(Backbone, 'on-click-more-button', function ({ sid }) {
+            this.collection.fetch({
+                data: {
+                    sid,
+                    expand: 'description, photo_sizes',
+                }
+            });
+        });
+        this.listenTo(this.collection, 'sync', this.render);
+    },
+    render () {
+        this.$('.cart-atributes').html('');
+        this.collection.each(model => {
+            const template = this.itemTemplate(model.toJSON());
+            this.$('.cart-atributes').append(template);
+        });
+        this.$el.removeClass('not-display');
     },
     openCharacteristic: function () {
         this.$('.description-value').addClass('not-display');

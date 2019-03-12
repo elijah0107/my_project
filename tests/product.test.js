@@ -20,9 +20,11 @@ describe('check search form', () => {
         $('body').html('');
     });
 
-    it('check open characteristic', () => {
+    fit('check open characteristic', () => {
         view = createProductView();
-
+        view.collection.push(new Backbone.Model({ name: 'test', photos: [] }));
+        view.render();
+        console.log(view.$('.description-value').length);
         view.openCharacteristic();
         expect(view.$('.description-value').hasClass('not-display')).toEqual(true);
         expect(view.$('.characteristic-value').hasClass('not-display')).toEqual(false);
@@ -30,9 +32,8 @@ describe('check search form', () => {
         expect(view.$('.description').hasClass('selected')).toEqual(false);
     });
 
-    fit('check open description', () => {
+    it('check open description', () => {
         view = createProductView();
-
         view.openDescription();
         expect(view.$('.description-value').hasClass('not-display')).toEqual(false);
         expect(view.$('.characteristic-value').hasClass('not-display')).toEqual(false);

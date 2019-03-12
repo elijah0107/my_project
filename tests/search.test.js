@@ -22,19 +22,7 @@ describe('check search form', () => {
             });
         };
     let testModel = new Backbone.Model({
-        name: 'test',
-        photos: ['test'] ,
-        url_part: 'test',
-        photo_sizes: ['test'],
-        photoVersions: ['test'],
-        number: 1, price: 123,
-        description: 'Тестовое описание',
-        trademark: 'Тестовая ТМ',
-        sid: 1234,
-        country: 'Тестовая страна',
-        stuff: 'Тест',
-        box_capacity: 'Тест',
-        size: 123
+        sid: 'test',
     });
     it('check url', function () {
         const items = new Items();
@@ -58,11 +46,12 @@ describe('check search form', () => {
         expect(form.$('.search-sid').hasClass('not-display')).toEqual(true);
     });
 
-    fit('check open details', () => {
+    it('check open details', () => {
         form = createSearchForm();
+        form.collection.push(testModel);
+        form.render();
         spyOn(Backbone, 'trigger');
-        form.$('.js-item-more-button').data('test')
-        console.log(form.$('.js-item-more-button').data());
+        form.$('.js-item-more-button').data('test');
         form.openDetails({
             target: document.querySelector('.js-item-more-button'),
         });

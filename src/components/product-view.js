@@ -1,6 +1,7 @@
 import Backbone from 'backbone';
 import template from 'lodash/template';
 import $ from 'jquery';
+import SearchForm from './search-form';
 
 const ProductView = Backbone.View.extend({
   events: {
@@ -30,14 +31,14 @@ const ProductView = Backbone.View.extend({
   openCharacteristic() {
     this.$('.description-value').addClass('not-display');
     this.$('.characteristic-value').removeClass('not-display');
-    $('.js-characteristic').addClass('selected');
-    $('.js-description').removeClass('selected');
+    this.$('.js-characteristic').addClass('selected');
+    this.$('.js-description').removeClass('selected');
   },
   openDescription() {
     this.$('.characteristic-value').addClass('not-display');
     this.$('.description-value').removeClass('not-display');
-    $('.js-description').addClass('selected');
-    $('.js-characteristic').removeClass('selected');
+    this.$('.js-description').addClass('selected');
+    this.$('.js-characteristic').removeClass('selected');
   },
 });
 

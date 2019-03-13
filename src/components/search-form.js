@@ -1,6 +1,7 @@
 import Backbone from 'backbone';
 import template from 'lodash/template';
 import $ from 'jquery';
+import ProductView from './product-view';
 
 const SearchForm = Backbone.View.extend({
   initialize() {

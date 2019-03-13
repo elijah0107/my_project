@@ -8,8 +8,8 @@ const SearchForm = Backbone.View.extend({
     this.listenTo(this.collection, 'sync', this.render);
   },
   events: {
-    'click #first-search': 'editSearch',
-    'click #search-button': 'backToFirstView',
+    'click #js-first-search': 'editSearch',
+    'click #js-search-button': 'backToFirstView',
     'click .js-item-more-button': 'openDetails',
   },
   render() {

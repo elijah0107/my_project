@@ -4,8 +4,8 @@ import $ from 'jquery';
 
 const ProductView = Backbone.View.extend({
   events: {
-    'click .characteristic': 'openCharacteristic',
-    'click .description': 'openDescription',
+    'click .js-characteristic': 'openCharacteristic',
+    'click .js-description': 'openDescription',
   },
   initialize() {
     this.itemTemplate = template($('#cart-template').html());
@@ -30,14 +30,14 @@ const ProductView = Backbone.View.extend({
   openCharacteristic() {
     this.$('.description-value').addClass('not-display');
     this.$('.characteristic-value').removeClass('not-display');
-    $('.characteristic').addClass('selected');
-    $('.description').removeClass('selected');
+    $('.js-characteristic').addClass('selected');
+    $('.js-description').removeClass('selected');
   },
   openDescription() {
     this.$('.characteristic-value').addClass('not-display');
     this.$('.description-value').removeClass('not-display');
-    $('.description').addClass('selected');
-    $('.characteristic').removeClass('selected');
+    $('.js-description').addClass('selected');
+    $('.js-characteristic').removeClass('selected');
   },
 });
 

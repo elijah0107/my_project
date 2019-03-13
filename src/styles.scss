@@ -106,13 +106,13 @@
         }
     }
 }
-.description:visited,
-.characteristic:visited {
+.js-description:visited,
+.js-characteristic:visited {
     color: #0084d7;
     font-weight: bold;
 }
-.description > a,
-.characteristic > a{
+.js-description > a,
+.js-characteristic > a{
     text-decoration: none;
     border-bottom: 1px dashed;
 }

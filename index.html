@@ -52,18 +52,43 @@
                 <div class="characteristic-value not-display">
                     <div class="common">
                         <div class="common-title">Общие:</div>
-                        <div class="characteristic-name">Торговая марка: <div class="underline"></div> <div class="trademark"><%= trademark.name %></div></div>
-                        <div class="characteristic-name">Артикул:<div class="underline"></div><div class="trademark"><%= sid %></div></div>
-                        <div class="characteristic-name">Страна:<div class="underline"></div><div class="trademark"><%= country.name %></div></div>
-                        <div class="characteristic-name">Состав:<div class="underline"></div><div class="trademark"><%= stuff %></div></div>
+
+                        <div class="characteristic-name">
+                            <div class="trademark">Торговая марка:</div>
+                            <div class="underline"></div>
+                            <div class="trademark-value"><%= trademark.name %></div>
+                        </div>
+                        <div class="characteristic-name">
+                            <div class="trademark">Артикул:</div>
+                            <div class="underline"></div>
+                            <div class="trademark-value"><%= sid %></div>
+                        </div>
+                        <div class="characteristic-name">
+                            <div class="trademark">Страна:</div>
+                            <div class="underline"></div>
+                            <div class="trademark-value"><%= country.name %></div>
+                        </div>
+                        <div class="characteristic-name">
+                            <div class="trademark">Состав:</div>
+                            <div class="underline"></div>
+                            <div class="trademark-value"><%= stuff %></div>
+                        </div>
                     </div>
                     <div class="common">
                         <div class="common-title">Упаковка и фасовка:</div>
-                        <div class="characteristic-name">В боксе:<div class="underline"></div><%= box_capacity %></div>
+                        <div class="characteristic-name">
+                            <div class="trademark">В боксе:</div>
+                            <div class="underline"></div>
+                            <div class="trademark-value"><%= box_capacity %></div>
+                        </div>
                     </div>
                     <div class="common">
                         <div class="common-title">Габариты и вес:</div>
-                        <div class="characteristic-name">Размер:<div class="underline"></div><%= size %></div>
+                        <div class="characteristic-name">
+                            <div class="trademark">Размер:</div>
+                            <div class="underline"></div>
+                            <div class="trademark-value"><%= size %></div>
+                        </div>
                     </div>
                 </div>
             </div>

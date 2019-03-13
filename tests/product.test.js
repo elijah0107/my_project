@@ -1,38 +1,36 @@
+import $ from 'jquery';
+import Backbone from 'backbone';
 import ProductView from '../src/components/product-view';
-import CartsItem from "../src/components/carts-item";
-import $ from "jquery";
-import Backbone from "backbone";
-import Load from "../fixture-loader";
+import CartsItem from '../src/components/carts-item';
+import Load from '../fixture-loader';
 
 describe('check search form', () => {
-    let fixtures = Load('index', 'html'),
-        view,
-        createProductView = () => {
-            return new ProductView({
-                el: '.cart-item',
-                collection: new CartsItem(),
-            });
-
-        },
-        testModel = new Backbone.Model({
-            name: 'test',
-            photos: ['test'] ,
-            url_part: 'test',
-            photo_sizes: [],
-            photoVersions: ['test'],
-            number: 1, price: 123,
-            description: 'Тестовое описание',
-            trademark: 'Тестовая ТМ',
-            sid: 1234,
-            country: 'Тестовая страна',
-            stuff: 'Тест',
-            box_capacity: 'Тест',
-            size: 123
-        });
-    beforeEach(function () {
+    let view;
+    const fixtures = Load('index', 'html');
+    const createProductView = () => new ProductView({
+        el: '.cart-item',
+        collection: new CartsItem(),
+    });
+    const testModel = new Backbone.Model({
+        name: 'test',
+        photos: ['test'],
+        url_part: 'test',
+        photo_sizes: [],
+        photoVersions: ['test'],
+        number: 1,
+        price: 123,
+        description: 'Тестовое описание',
+        trademark: 'Тестовая ТМ',
+        sid: 1234,
+        country: 'Тестовая страна',
+        stuff: 'Тест',
+        box_capacity: 'Тест',
+        size: 123,
+    });
+    beforeEach(() => {
         $('body').append(fixtures);
     });
-    afterEach(function () {
+    afterEach(() => {
         $('body').html('');
     });
 

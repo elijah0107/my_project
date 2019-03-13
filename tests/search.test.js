@@ -1,28 +1,27 @@
 import SearchForm from '../src/components/search-form';
-import Items from "../src/components/items";
+import Items from '../src/components/items';
 import Load from '../fixture-loader';
-import $ from "jquery";
-import Backbone from "backbone";
+import $ from 'jquery';
+import Backbone from 'backbone';
 
 
 describe('check search form', () => {
-    let fixtures = Load('index', 'html');
-
+    let form;
+    const fixtures = Load('index', 'html');
+    const createSearchForm = () => {
+        return new SearchForm({
+            el: '.searchNew',
+            collection: new Items(),
+        });
+    };
+    const testModel = new Backbone.Model({
+        sid: 'test',
+    });
     beforeEach(function () {
         $('body').append(fixtures);
     });
     afterEach(function () {
         $('body').html('');
-    });
-    let form,
-        createSearchForm = () => {
-            return new SearchForm({
-                el: '.searchNew',
-                collection: new Items()
-            });
-        };
-    let testModel = new Backbone.Model({
-        sid: 'test',
     });
     it('check url', function () {
         const items = new Items();
@@ -32,7 +31,7 @@ describe('check search form', () => {
     it('parse test', () => {
         const items = new Items();
         const result = items.parse({
-            items: 'Stone'
+            items: 'Stone',
         });
         expect(result).toEqual('Stone');
     });
@@ -67,5 +66,4 @@ describe('check search form', () => {
         expect($('.cart-item').hasClass('not-display')).toEqual(true);
         expect(form.$('.text-value').val()).toEqual('');
     });
-
 });

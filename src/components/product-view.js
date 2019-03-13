@@ -19,6 +19,9 @@ const ProductView = Backbone.View.extend({
       });
     });
     this.listenTo(this.collection, 'sync', this.render);
+    Backbone.on('back-to-step-one', () => {
+      this.$el.addClass('not-display');
+    });
   },
   render() {
     this.$('.cart-atributes').html('');

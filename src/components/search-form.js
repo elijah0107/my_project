@@ -48,7 +48,7 @@ const SearchForm = Backbone.View.extend({
     this.$('.text-value').val('');
     this.$('.search-sid').removeClass('not-display');
     this.$('.search-result').addClass('not-display');
-    $('.cart-item').addClass('not-display');
+    Backbone.trigger('back-to-step-one');
   },
 });
 export default SearchForm;

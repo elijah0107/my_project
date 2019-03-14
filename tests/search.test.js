@@ -9,7 +9,7 @@ describe('check search form', () => {
   let form;
   const fixtures = Load('index', 'html');
   const createSearchForm = () => new SearchForm({
-    el: '.searchNew',
+    el: '.search-new',
     collection: new Items(),
   });
   const testModel = new Backbone.Model({

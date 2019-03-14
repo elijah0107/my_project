@@ -23,10 +23,10 @@ const ProductView = Backbone.View.extend({
     });
   },
   render() {
-    this.$('.cart-atributes').html('');
+    this.$('.cart-attributes').html('');
     this.collection.each((model) => {
       const template = this.itemTemplate(model.toJSON());
-      this.$('.cart-atributes').append(template);
+      this.$('.cart-attributes').append(template);
     });
     this.$el.removeClass('not-display');
   },

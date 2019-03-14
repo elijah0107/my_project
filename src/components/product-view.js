@@ -5,8 +5,8 @@ import SearchForm from './search-form';
 
 const ProductView = Backbone.View.extend({
   events: {
-    'click .js-characteristic': 'openCharacteristic',
-    'click .js-description': 'openDescription',
+    'click .js-open-characteristic': 'openCharacteristic',
+    'click .js-open-description': 'openDescription',
   },
   initialize() {
     this.itemTemplate = template($('#cart-template').html());
@@ -34,14 +34,14 @@ const ProductView = Backbone.View.extend({
   openCharacteristic() {
     this.$('.description-value').addClass('not-display');
     this.$('.characteristic-value').removeClass('not-display');
-    this.$('.js-characteristic').addClass('selected');
-    this.$('.js-description').removeClass('selected');
+    this.$('.characteristic').addClass('selected');
+    this.$('.description').removeClass('selected');
   },
   openDescription() {
     this.$('.characteristic-value').addClass('not-display');
     this.$('.description-value').removeClass('not-display');
-    this.$('.js-description').addClass('selected');
-    this.$('.js-characteristic').removeClass('selected');
+    this.$('.description').addClass('selected');
+    this.$('.characteristic').removeClass('selected');
   },
 });
 

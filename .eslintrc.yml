@@ -5,6 +5,8 @@ env:
   node: true
   jest: true
   browser: true
+  commonjs: true
+
 parser: babel-eslint
 extends:
   - 'airbnb-base'
@@ -12,3 +14,6 @@ extends:
 rules:
   no-console: 0
   indent: [2, 2]
+  no-shadow: off
+  import/no-extraneous-dependencies: warn
+  no-unused-vars: warn

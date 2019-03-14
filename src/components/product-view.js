@@ -9,7 +9,7 @@ const ProductView = Backbone.View.extend({
   },
   initialize() {
     this.itemTemplate = template($('#cart-template').html());
-    this.listenTo(Backbone, 'on-click-more-button', function ({ sid }) {
+    this.listenTo(Backbone, 'on-click-more-button', ({ sid }) => {
       this.collection.fetch({
         data: {
           sid,

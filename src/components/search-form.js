@@ -1,7 +1,6 @@
 import Backbone from 'backbone';
 import template from 'lodash/template';
 import $ from 'jquery';
-import ProductView from './product-view';
 
 const SearchForm = Backbone.View.extend({
   initialize() {
@@ -9,8 +8,8 @@ const SearchForm = Backbone.View.extend({
     this.listenTo(this.collection, 'sync', this.render);
   },
   events: {
-    'click #js-first-search': 'editSearch',
-    'click #js-search-button': 'backToFirstView',
+    'click .js-first-search': 'editSearch',
+    'click .js-search-button': 'backToFirstView',
     'click .js-item-more-button': 'openDetails',
   },
   render() {

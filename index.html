@@ -8,25 +8,25 @@
 </head>
 <body>
 <div class="search-item">
-    <div class="searchNew">
+    <div class="search-new">
         <div class="search-sid">
             <h2>Поиск товаров по артикулам</h2>
             <p>Введите артикулы через пробел с новой строки, например: 123456 123415 135252</p>
             <p>Не более 1000 артикулов за раз</p>
             <textarea class="text-value" id="searchValue"></textarea><br>
-            <button class="button-blue" id="first-search">Искать</button>
+            <button class="button-blue js-first-search">Искать</button>
         </div>
         <div class="search-result not-display">
             <h2>Поиск товаров по артикулам</h2>
             <p>Результат</p>
             <div class="search">
                 <div class="search-list"></div>
-                <button class="button-blue" id="search-button">Искать ещё</button>
+                <button class="button-blue js-search-button">Искать ещё</button>
             </div>
         </div>
     </div>
     <div class="cart-item not-display">
-        <div class="cart-atributes"></div>
+        <div class="cart-attributes"></div>
     </div>
 </div>
 <!-- templates -->
@@ -45,13 +45,14 @@
             <div class="price"><%= price %> RUB</div>
             <div class="cart-description">
                 <div class="cart-options">
-                    <div class="titles description"><a class="titles description" href="#">описание</a></div>
-                    <div class="titles characteristic"><a class="titles characteristic" href="#">характеристики</a></div>
+                    <div class="titles description selected"><a class="titles description js-open-description selected" href="#">описание</a></div>
+                    <div class="titles characteristic"><a class="titles characteristic js-open-characteristic" href="#">характеристики</a></div>
                 </div>
                 <div class="description-value"><%= description %></div>
                 <div class="characteristic-value not-display">
                     <div class="common">
                         <div class="common-title">Общие:</div>
+
                         <div class="characteristic-name">
                             <div class="trademark">Торговая марка:</div>
                             <div class="underline"></div>
